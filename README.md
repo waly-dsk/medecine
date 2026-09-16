@@ -1,64 +1,139 @@
 # Plateforme web de la Faculté de Médecine
 
-> Application web développée dans le cadre d'un projet universitaire visant à mettre en place une plateforme numérique pour la faculté de médecine de l'Université de Parakou.
+Projet universitaire réalisé avec Laravel pour concevoir une plateforme web dédiée à une faculté de médecine.
 
-## Présentation
+## Objectif
 
-Ce projet consiste à concevoir et développer une plateforme web regroupant différentes informations et services liés à la vie d'une faculté de médecine.
+Centraliser sur une même plateforme les informations institutionnelles, les formations, la recherche, les actualités et certains services destinés aux étudiants.
 
-L'application combine deux dimensions :
+## Fonctionnalités
 
-- une **dimension institutionnelle**, permettant de présenter l'organisation, les formations, la recherche et les actualités de la faculté ;
-- une **dimension estudiantine**, permettant notamment aux étudiants de consulter leur cursus universitaire et leurs résultats académiques.
+### Gouvernance
 
-Le projet m'a permis de travailler sur la conception d'une application web capable de regrouper différents types d'informations et de proposer des parcours adaptés aux différents besoins des utilisateurs.
+* Mot du Doyen
+* Historique
+* Administration
 
----
+### Formation
 
-## Objectifs
+* Doctorat
+* Diplôme d'Études Spécialisées (DES)
+* DES 1
+* DES 2
+* DES 3
 
-L'objectif principal est de proposer un point d'accès numérique centralisant les informations et certains services de la faculté.
+### Recherche
 
-La plateforme permet notamment de :
+* Laboratoires
+* Thèses
 
-- présenter l'organisation et la gouvernance de la faculté ;
-- présenter les formations proposées ;
-- présenter les activités de recherche ;
-- publier des actualités et des événements ;
-- permettre aux étudiants de consulter leur cursus ;
-- permettre la consultation des résultats académiques ;
-- afficher le détail des résultats obtenus pour une année académique donnée.
+### Vie estudiantine
 
----
+* Consultation des résultats
+* Consultation du cursus
+* Consultation du détail des résultats par année académique
 
-# Organisation fonctionnelle
+Pour consulter ses résultats, l'étudiant renseigne son matricule, sa date de naissance et l'année académique. Le système vérifie les informations avant de rechercher les notes, la classe et la décision du jury.
 
-L'application est organisée autour de plusieurs domaines fonctionnels.
+Le cursus est reconstitué à partir des inscriptions, des classes et des décisions prises pour chaque année académique.
+
+### Actualités
+
+* Actualités
+* Événements
+
+## Organisation
 
 ```text
-                    PLATEFORME WEB
-                          │
-        ┌─────────────────┼─────────────────┐
-        │                 │                 │
-        ▼                 ▼                 ▼
-   Gouvernance        Formation         Recherche
-        │                 │                 │
-        │                 │                 ├── Laboratoires
-        │                 │                 └── Thèses
-        │                 │
-        ├── Mot du Doyen  ├── Doctorat
-        ├── Historique    └── DES
-        └── Administration
-                          │
-                          ▼
-                  Vie estudiantine
-                          │
-              ┌───────────┴───────────┐
-              ▼                       ▼
-           Résultats                Cursus
-              │                       │
-              ▼                       ▼
-       Notes par UE/ECU       Parcours académique
-              │
-              ▼
-        Décision du jury
+Plateforme web
+│
+├── Gouvernance
+│   ├── Mot du Doyen
+│   ├── Historique
+│   └── Administration
+│
+├── Formation
+│   ├── Doctorat
+│   └── DES
+│       ├── DES 1
+│       ├── DES 2
+│       └── DES 3
+│
+├── Recherche
+│   ├── Laboratoires
+│   └── Thèses
+│
+├── Vie estudiantine
+│   ├── Résultats
+│   ├── Cursus
+│   └── Détails des résultats
+│
+└── Actualités
+    ├── Actualités
+    └── Événements
+```
+
+## Technologies
+
+* PHP 8.1+
+* Laravel 10
+* Laravel Sanctum
+* MySQL
+* Blade
+* Vite
+* JavaScript
+
+Le projet utilise l'architecture MVC de Laravel et le Query Builder pour interroger les données relationnelles.
+
+## Installation
+
+### Prérequis
+
+* PHP 8.1 ou supérieur
+* Composer
+* Node.js
+* MySQL
+
+### Installation
+
+```bash
+git clone https://github.com/waly-dsk/medecine.git
+cd medecine
+
+composer install
+npm install
+
+cp .env.example .env
+php artisan key:generate
+```
+
+Configurer ensuite la connexion à la base de données dans `.env`.
+
+Lancer l'application :
+
+```bash
+php artisan serve
+```
+
+Compiler les assets :
+
+```bash
+npm run dev
+```
+
+Pour une compilation de production :
+
+```bash
+npm run build
+```
+
+## Contexte
+
+Ce projet a été réalisé dans le cadre de ma formation en Licence Informatique de Gestion.
+
+
+## Auteur
+
+**Davo Kpinde Sèwlannou Wilfried**
+
+GitHub : https://github.com/waly-dsk
