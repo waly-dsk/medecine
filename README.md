@@ -1,6 +1,6 @@
 # Plateforme web de la Faculté de Médecine
 
-> Application web développée dans le cadre d'un projet universitaire visant à mettre en place une plateforme numérique pour une faculté de médecine.
+> Application web développée dans le cadre d'un projet universitaire visant à mettre en place une plateforme numérique pour la faculté de médecine de l'Université de Parakou.
 
 ## Présentation
 
